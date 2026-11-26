@@ -1,0 +1,9 @@
+package Projekat;
+
+public interface Colllidable {
+	boolean intersects(Collidable other);
+    int getX();
+    int getY();
+    int getWidth();
+    int getHeight();
+}
