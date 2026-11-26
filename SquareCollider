@@ -1,0 +1,45 @@
+public class SquareCollider implements Collidable {
+    private int x;
+    private int y;
+    private int size;
+
+    public SquareCollider(int x, int y, int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException("Sirina kvadrata mora biti veca od 0.");
+        }
+        this.x = x;
+        this.y = y;
+        this.size = size;
+    }
+
+    @Override
+    public boolean intersects(Collidable other) {
+        if (other == null) {
+            return false;
+        }
+        return this.x < other.getX() + other.getWidth() &&
+               this.x + this.size > other.getX() &&
+               this.y < other.getY() + other.getHeight() &&
+               this.y + this.size > other.getY();
+    }
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int getWidth() {
+        return size;
+    }
+
+    @Override
+    public int getHeight() {
+        return size;
+    }
+}
