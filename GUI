@@ -1,0 +1,120 @@
+package Projekat;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class GUI extends JFrame {
+	
+	    private JTextField ime;
+	    private JTextField health;
+	    private JTextField pozicijaX;
+	    private JTextField pozicijaY;
+	    private JComboBox<String> kolajder;
+	    private JButton pokreniIgru;
+	    private JButton sacuvaj;
+	    private JTextArea rezultat;
+
+	    private Game game;
+
+	    public GUI() {
+	        setTitle("Game Setup");
+	        setSize(780, 450);
+	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        setLayout(null);
+
+	        JLabel lableName = new JLabel("Ime:");
+	        lableName.setBounds(20, 20, 100, 25);
+	        add(lableName);
+
+	        ime = new JTextField("Harry Potter");
+	        ime.setBounds(130, 20, 150, 25);
+	        add(ime);
+
+	        JLabel lblHealth = new JLabel("Health (0-100):");
+	        lblHealth.setBounds(20, 55, 100, 25);
+	        add(lblHealth);
+
+	        health = new JTextField("90");
+	        health.setBounds(130, 55, 150, 25);
+	        add(health);
+
+	        JLabel lableX = new JLabel("X pozicija:");
+	        lableX.setBounds(20, 90, 100, 25);
+	        add(lableX);
+
+	        pozicijaX = new JTextField("12");
+	        pozicijaX.setBounds(130, 90, 150, 25);
+	        add(pozicijaX);
+
+	        JLabel lableY = new JLabel("Y pozicija:");
+	        lableY.setBounds(20, 125, 100, 25);
+	        add(lableY);
+
+	        pozicijaY = new JTextField("9");
+	        pozicijaY.setBounds(130, 125, 150, 25);
+	        add(pozicijaY);
+
+	        JLabel lableKolajder = new JLabel("Kolajder:");
+	        lableKolajder.setBounds(20, 160, 100, 25);
+	        add(lableKolajder);
+
+	        kolajder = new JComboBox<>(new String[]{"Pravougaonik 40x24", "Kvadrat 32x32"});
+	        kolajder.setBounds(130, 160, 150, 25);
+	        add(kolajder);
+
+	        pokreniIgru = new JButton("Pokreni igru");
+	        pokreniIgru.setBounds(20, 210, 260, 30);
+	        add(pokreniIgru);
+
+	        sacuvaj = new JButton("Sacuvaj");
+	        sacuvaj.setBounds(20, 245, 260, 30);
+	        add(sacuvaj);
+
+	        rezultat = new JTextArea();
+	        rezultat.setEditable(false);
+	        JScrollPane scroll = new JScrollPane(rezultat);
+	        scroll.setBounds(300, 20, 445, 370);
+	        add(scroll);
+
+	        sacuvaj.addActionListener(new ActionListener() {
+	        	
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                pokreniIgru();
+	            }
+	        });
+
+	        sacuvaj.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                sacuvajRezultat();
+	            }
+	        });
+	    }
+	    
+		    private void pokreniIgru() {
+		        try {
+		            String Ime = ime.getText();
+		            int Health = Integer.parseInt(health.getText().trim());
+		            int x = Integer.parseInt(pozicijaX.getText().trim());
+		            int y = Integer.parseInt(pozicijaY.getText().trim());
+
+		            
+		        }
+
+	public static void main(String[] args) {
+		GUI frame = new GUI();
+        frame.setVisible(true);
+
+	}
+
+}
