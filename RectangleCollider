@@ -1,0 +1,49 @@
+package Projekat;
+
+public class RectangleCollider implements Collidable {
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+
+    public RectangleCollider(int x, int y, int width, int height) {
+        if (width <= 0 || height <= 0) {
+            throw new IllegalArgumentException("Sirina i visina moraju biti vece od 0.");
+        }
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public boolean intersects(Collidable other) {
+        if (other == null) {
+            return false;
+        }
+        return this.x < other.getX() + other.getWidth() &&
+               this.x + this.width > other.getX() &&
+               this.y < other.getY() + other.getHeight() &&
+               this.y + this.height > other.getY();
+    }
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+}
